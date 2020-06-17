@@ -9,17 +9,13 @@ const port = process.env.SERVER_PORT;
 const app: express.Application = express();
 
 app.use(bodyParser.json());
-
-// Configure Express to use EJS
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
-app.get("/", (req, res) => {
-  // render the index template
-  res.render("index");
-});
+app.use(express.static(__dirname + "/www"));
 
 app.listen(port, () => {
   // tslint:disable-next-line:no-console
   console.log(`Server up and ready!\nServer on port ${port}`);
+});
+
+app.get("/", (req, res) => {
+  res.sendFile("www/index.html", { root: __dirname });
 });

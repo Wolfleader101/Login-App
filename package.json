@@ -9,14 +9,14 @@
     "tsc": "tsc",
     "build": "npm-run-all clean tsc copy-assets",
     "dev:start": "npm-run-all build start",
-    "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
+    "dev": "npm-run-all build startdev",
+    "startdev": "nodemon --watch src -e ts",
     "start": "node ."
   },
   "author": "Wolfleader101",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "ejs": "^3.1.3",
     "express": "^4.17.1"
   },
   "devDependencies": {
