@@ -2,10 +2,21 @@
   "name": "login-app",
   "version": "1.0.0",
   "description": "a simple login app including backend and frontend",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ."
   },
   "author": "Wolfleader101",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/node": "^14.0.13",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.5"
+  }
 }
